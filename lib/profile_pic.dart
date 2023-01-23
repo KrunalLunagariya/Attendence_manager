@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'employee_edit_profile.dart';
 
 class ProfilePic extends StatelessWidget {
   double screenHeight = 0;
@@ -58,10 +57,10 @@ class ProfilePic extends StatelessWidget {
                       icon:  Icon(Icons.edit,color: Colors.blue),
                       alignment: Alignment.topRight,
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  Edit_Profile()),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) =>  Edit_Profile()),
+                        // );
                       },
                     ),
                   ),

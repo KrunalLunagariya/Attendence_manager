@@ -3,6 +3,7 @@ import 'package:AttendanceSystem/api_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'home_screen.dart';
 import 'register_page.dart';
 import '../routs.dart';
 
@@ -13,11 +14,12 @@ class Home extends StatefulWidget{
 }
 
 class Loginpage extends State<Home> {
+  // key for form
   final formKey = GlobalKey<FormState>();
-  //key for form
   final emailText = TextEditingController();
   final passwordText = TextEditingController();
   final service = ApiServices();
+  bool _obscureText = false;
   double screenHeight = 0;
   double screenWidth = 0;
 
@@ -142,11 +144,20 @@ class Loginpage extends State<Home> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       controller: passwordText,
-                      obscureText: true,
+                      obscureText: _obscureText,
                       decoration: InputDecoration(
                         fillColor: Colors.transparent,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
+                        ),
+                        suffixIcon: GestureDetector(onTap: (){
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                          child: Icon(_obscureText
+                              ? Icons.visibility_off
+                              : Icons.visibility),
                         ),
                         hintText: "Enter Password",
                         contentPadding: const EdgeInsets.all(8),
@@ -169,8 +180,12 @@ class Loginpage extends State<Home> {
                   minWidth: screenWidth/1, // <-- Your width
                   height: 40,
                   onPressed: (){
-                    if(formKey.currentState!.validate()){}
-                    callLoginApi();
+                    //if(formKey.currentState!.validate()){}
+                    //callLoginApi();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  MyHomePage()),
+                    );
                   },
                   shape: const StadiumBorder(),
                   color: Colors.deepPurple,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'employee_change_password_page.dart';
+import 'employee_leave_page.dart';
 import 'employee_profile_attendancereport_page.dart';
-import 'profile_menu.dart';
-import 'profile_pic.dart';
+import '../profile_menu.dart';
+import '../profile_pic.dart';
 
 class ListWorkingHours extends StatelessWidget {
 
@@ -43,6 +45,10 @@ class ListWorkingHours extends StatelessWidget {
           ProfileMenu(
             text: "Leave Request",
             press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  Leave_Request()),
+              );
               },
           ),
           const Padding(
@@ -76,7 +82,12 @@ class ListWorkingHours extends StatelessWidget {
           ),
           ProfileMenu(
             text: "Change Password",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  Change_password()),
+              );
+            },
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),

@@ -90,30 +90,35 @@ class Attendance extends State<Employee_Report>{
                       ),
                       Container(
                         margin: const EdgeInsets.only(top: 2),
-                        height: screenHeight / 14,
+                        height: screenHeight / 13,
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children:  [
-                            Icon(Icons.calendar_month_rounded, size: 24 ,color:Colors.deepPurple,),
-                            OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                side: BorderSide(color: Colors.transparent),
-                              ),
-                              onPressed: _showDatePicker,
-                              child: Text(DateFormat('1 MMM yyyy  To  ').format(DateTime.now()),
-                                style: TextStyle(fontSize: 19),
-                              ),
+                            Icon(Icons.calendar_month_rounded, size: 24 ,color:Colors.blue,),
+                            Row(
+                              children: [
+                                OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                    side: BorderSide(color: Colors.transparent),
+                                  ),
+                                  onPressed: _showDatePicker,
+                                  child: Text(DateFormat('1 MMM \n yyyy').format(DateTime.now()),
+                                    style: TextStyle(fontSize: 19),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Icon(Icons.calendar_month_rounded, size: 24 ,color:Colors.deepPurple,),
+                            Text('-- To --'),
+                            Icon(Icons.calendar_month_rounded, size: 24 ,color:Colors.blue,),
                             OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 side: BorderSide(color: Colors.transparent),
                               ),
                               onPressed: _showDatePicker,
-                              child: Text(DateFormat('dd MMM yyyy ').format(DateTime.now()),
+                              child: Text(DateFormat('dd MMM \n yyyy ').format(DateTime.now()),
                                 style: TextStyle(fontSize: 19),
                               ),
                             ),
@@ -141,7 +146,7 @@ class Attendance extends State<Employee_Report>{
                             Text.rich(
                               TextSpan(
                                 children: <TextSpan>[
-                                  TextSpan(text: '       --- Working Details ---', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,)),
+                                  TextSpan(text: ' --- Working Hours Details ---', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,)),
                                 ],
                               ),
                             )
