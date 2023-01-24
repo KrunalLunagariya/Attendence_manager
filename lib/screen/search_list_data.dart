@@ -1,3 +1,4 @@
+import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 import '../custom_text_field.dart';
 
@@ -21,10 +22,10 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
 
   final List<Map<String, dynamic>> _allUsers = [
     {"id": 1, "name": "Krunal", "age": 18},
@@ -97,21 +98,21 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     leading: Text(
                       _foundUsers[index]["id"].toString(),
-                      style: const TextStyle(fontSize: 24, color:Colors.black),
+                      style: AppTextStyle.blackfont24,
                     ),
-                    title: Text(_foundUsers[index]['name'], style:const TextStyle(
-                        color:Colors.black
+                    title: Text(_foundUsers[index]['name'], style: TextStyle(
+                        color:AppColor.black
                     )),
                     subtitle: Text(
-                        '${_foundUsers[index]["age"].toString()} years old',style:const TextStyle(
-                        color:Colors.black
+                        '${_foundUsers[index]["age"].toString()} years old',style: TextStyle(
+                        color:AppColor.black
                     )),
                   ),
                 ),
               )
-                  : const Text(
+                  :  Text(
                 'No results found',
-                style: TextStyle(fontSize: 24),
+                style: AppTextStyle.simplefont24,
               ),
             ),
           ],

@@ -3,6 +3,7 @@ import 'package:AttendanceSystem/api_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import '../app_manage.dart';
 import 'home_screen.dart';
 import 'register_page.dart';
 import '../routs.dart';
@@ -45,7 +46,6 @@ class Loginpage extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final double height= MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
@@ -96,21 +96,14 @@ class Loginpage extends State<Home> {
               //   ],
               // ),
               const SizedBox(height: 170),
-              const Text(
+               Text(
                 'Login',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
-                ),
+                style: AppTextStyle.deepPurplefontbold50,
               ),
               const SizedBox(height: 10),
-              const Text(
+               Text(
                 'Welcome back you\'ve been missed!',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
+                style: AppTextStyle.blackfont16,
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -119,13 +112,13 @@ class Loginpage extends State<Home> {
                   child: TextFormField(
                     controller: emailText,
                     decoration: InputDecoration(
-                      fillColor: Colors.transparent,
+                      fillColor: AppColor.transparent,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(35),
                       ),
                       hintText: "Enter Email",
                       contentPadding: const EdgeInsets.all(8),
-                      prefixIcon: const Icon(Icons.email ,color: Colors.black),
+                      prefixIcon: Icon(Icons.email ,color: AppColor.black),
                     ),
                     validator: (value){
                       if(value!.isEmpty){
@@ -146,7 +139,7 @@ class Loginpage extends State<Home> {
                       controller: passwordText,
                       obscureText: _obscureText,
                       decoration: InputDecoration(
-                        fillColor: Colors.transparent,
+                        fillColor: AppColor.transparent,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -161,12 +154,12 @@ class Loginpage extends State<Home> {
                         ),
                         hintText: "Enter Password",
                         contentPadding: const EdgeInsets.all(8),
-                        prefixIcon: const Icon(Icons.lock ,color: Colors.black),
+                        prefixIcon: Icon(Icons.lock ,color: AppColor.black),
                       ),
                       validator: (value){
                         if((value!.isEmpty)){
                           return "* Required";
-                        }else if(RegExp(" ").hasMatch(value!)){
+                        }else if(RegExp(" ").hasMatch(value)){
                           return ('Don\'t use Space');
                         }else{
                           return null;
@@ -184,12 +177,12 @@ class Loginpage extends State<Home> {
                     //callLoginApi();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) =>  MyHomePage()),
+                      MaterialPageRoute(builder: (context) =>  const MyHomePage()),
                     );
                   },
                   shape: const StadiumBorder(),
-                  color: Colors.deepPurple,
-                  textColor: Colors.white,
+                  color: AppColor.deepPurple,
+                  textColor: AppColor.white,
                   child:const Text('Login'),
                 ),
               ),
@@ -197,13 +190,10 @@ class Loginpage extends State<Home> {
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
+                  children: [
                     Text(
                       'Forgot Password?',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                      ),
+                      style: AppTextStyle.blackfont14,
                     ),
                   ],
                 ),
@@ -212,24 +202,24 @@ class Loginpage extends State<Home> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: const [
+                  children: [
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: Colors.black,
+                        color: AppColor.black,
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'Or continue with',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: AppColor.black),
                       ),
                     ),
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: Colors.black,
+                        color: AppColor.black,
                       ),
                     ),
                   ],
@@ -255,24 +245,18 @@ class Loginpage extends State<Home> {
               const SizedBox(height: 20),
               RichText(
                 text: TextSpan(children: [
-                  const TextSpan(
+                   TextSpan(
                     text: 'Not a member? ',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                    ),
+                    style: AppTextStyle.blackfont15
                   ),
                   TextSpan(
                       text: ' Register now',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Colors.blue,
-                      ),
+                      style: AppTextStyle.bluefont15,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Regsiter()),
+                            MaterialPageRoute(builder: (context) => RegsiterPage()),
                           );
                         }),
                 ]),

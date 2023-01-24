@@ -1,20 +1,23 @@
+import 'package:AttendanceSystem/app_manage.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'employee_punch_page.dart';
 import 'employee_report_page.dart';
 import 'employee_Profile_page.dart';
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   int page = 0;
   final screens=[
-    const CheckIn(),
-    const Employee_Report(),
-          ListWorkingHours(),
+    const EmployeePunchPage(),
+    const EmployeeReportPage(),
+    const EmployeeProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -25,13 +28,13 @@ class _MyHomePageState extends State<MyHomePage> {
         height: 50,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),
-        buttonBackgroundColor: Colors.deepPurple,
-        color: Colors.white,
+        buttonBackgroundColor: AppColor.deepPurple,
+        color: AppColor.white,
         backgroundColor: Colors.transparent,
         items:  <Widget>[
-          Icon(Icons.alarm_on_rounded, size: 30, color: (page == 0)? Colors.white : Colors.black,),
-          Icon(Icons.calendar_month_rounded, size: 30,color: (page == 1)? Colors.white : Colors.black,),
-          Icon(Icons.person, size: 30,color: (page == 2)? Colors.white : Colors.black,),
+          Icon(Icons.alarm_on_rounded, size: 30, color: (page == 0)? AppColor.white : AppColor.black,),
+          Icon(Icons.calendar_month_rounded, size: 30,color: (page == 1)? AppColor.white : AppColor.black,),
+          Icon(Icons.person, size: 30,color: (page == 2)? AppColor.white : AppColor.black,),
         ],
         onTap: (index) {
           setState(() {

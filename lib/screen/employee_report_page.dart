@@ -1,8 +1,11 @@
+// ignore_for_file: avoid_unnecessary_containers
+
+import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class Employee_Report extends StatefulWidget {
-  const Employee_Report({Key? key}) : super(key: key);
+class EmployeeReportPage extends StatefulWidget {
+  const EmployeeReportPage({Key? key}) : super(key: key);
   @override
 
   Attendance createState() => Attendance();
@@ -12,7 +15,7 @@ class User{
   String date, day;
   User({required this.date, required this.day});
 }
-class Attendance extends State<Employee_Report>{
+class Attendance extends State<EmployeeReportPage>{
   double screenHeight = 0;
   double screenWidth = 0;
   List<User> users = [
@@ -25,7 +28,7 @@ class Attendance extends State<Employee_Report>{
     User(date:"11-Jan-2023", day:"Sunday"),
   ];
 
-  DateTime _dateTime = DateTime.now();
+  DateTime dateTime = DateTime.now();
 
   void _showDatePicker() {
     showDatePicker(context: context,
@@ -34,7 +37,7 @@ class Attendance extends State<Employee_Report>{
       lastDate: DateTime(2025),
     ).then((value){
       setState(() {
-        _dateTime = value!;
+        dateTime = value!;
       });
     });
   }
@@ -44,19 +47,18 @@ class Attendance extends State<Employee_Report>{
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
 
-
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const Text('Report ',
+          title:  Text('Report ',
             style: TextStyle(
-                color: Colors.black
+                color: AppColor.black
             ),),
           actions: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.more_vert),
-              color: Colors.black,
+              icon: const Icon(Icons.more_vert),
+              color: AppColor.black,
             ),
           ],
         ),
@@ -65,10 +67,10 @@ class Attendance extends State<Employee_Report>{
             child:Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 2),
+                    margin: const EdgeInsets.only(top: 2),
                     height: screenHeight / 13,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                    decoration: BoxDecoration(
+                      color: AppColor.white,
                     ),
                     child: Row(
                       children: [
@@ -78,10 +80,10 @@ class Attendance extends State<Employee_Report>{
                           },
                           icon: const Icon(Icons.person_pin,size: 40,),
                         ),
-                        const Text.rich(
+                         Text.rich(
                           TextSpan(
                             children: <TextSpan>[
-                              TextSpan(text: 'employee name', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,)),
+                              TextSpan(text: 'employee name', style:AppTextStyle.boldfont20),
                             ],
                           ),
                         )
@@ -92,34 +94,34 @@ class Attendance extends State<Employee_Report>{
                     margin: const EdgeInsets.only(top: 2),
                     height: screenHeight / 13,
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: AppColor.grey200,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children:  [
-                        Icon(Icons.calendar_month_rounded, size: 24 ,color:Colors.blue,),
+                        Icon(Icons.calendar_month_rounded, size: 24 ,color:AppColor.blue,),
                         Row(
                           children: [
                             OutlinedButton(
                               style: OutlinedButton.styleFrom(
-                                side: BorderSide(color: Colors.transparent),
+                                side: BorderSide(color: AppColor.transparent),
                               ),
                               onPressed: _showDatePicker,
                               child: Text(DateFormat('1 MMM \n yyyy').format(DateTime.now()),
-                                style: TextStyle(fontSize: 19),
+                                style: const TextStyle(fontSize: 19),
                               ),
                             ),
                               ],
                         ),
-                        Text('-- To --'),
-                        Icon(Icons.calendar_month_rounded, size: 24 ,color:Colors.blue,),
+                        const Text('-- To --'),
+                        Icon(Icons.calendar_month_rounded, size: 24 ,color:AppColor.blue,),
                         OutlinedButton(
                           style: OutlinedButton.styleFrom(
-                            side: BorderSide(color: Colors.transparent),
+                            side: BorderSide(color: AppColor.transparent),
                           ),
                           onPressed: _showDatePicker,
                           child: Text(DateFormat('dd MMM \n yyyy ').format(DateTime.now()),
-                            style: TextStyle(fontSize: 19),
+                            style: AppTextStyle.simplefont19,
                           ),
                         ),
                       ],
@@ -130,23 +132,25 @@ class Attendance extends State<Employee_Report>{
                     margin: const EdgeInsets.only(top: 2),
                     height: screenHeight / 5,
                     width: 340,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                    decoration: BoxDecoration(
+                      color: AppColor.white,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey,
+                          color: AppColor.grey,
                           blurRadius: 5.0,
-                          offset: Offset(2,2),
+                          offset: const Offset(2,2),
                         )
                       ],
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
                     ),
                     child: Row(
-                      children: const [
+                      children:  [
                         Text.rich(
                           TextSpan(
                             children: <TextSpan>[
-                              TextSpan(text: ' --- Working Hours Details ---', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,)),
+                              TextSpan(text: ' --- Working Hours Details ---',
+                            style: AppTextStyle.boldfont25,
+                              )
                             ],
                           ),
                         )

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       //theme: ThemeData(primarySwatch: Colors.deepPurple),
       builder: EasyLoading.init(),
       routes: {
-        Routes.register: (context) => MyHomePage(),
+        Routes.register: (context) => const MyHomePage(),
         Routes.firstscreen: (context) => const MyApp(),
       },
     );
@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  final bool _visible = true;
+  final bool visible = true;
   double opacityLevel = 1.0;
 
   @override

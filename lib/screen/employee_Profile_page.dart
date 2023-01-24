@@ -1,11 +1,14 @@
+// ignore_for_file: file_names
+import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 import 'employee_change_password_page.dart';
-import 'employee_leave_page.dart';
+import 'employee_leave_history_page.dart';
 import 'employee_profile_attendancereport_page.dart';
 import '../profile_menu.dart';
 import '../profile_pic.dart';
 
-class ListWorkingHours extends StatelessWidget {
+class EmployeeProfilePage extends StatelessWidget {
+  const EmployeeProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,33 +16,31 @@ class ListWorkingHours extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,
-          title: const Text("My Profile",
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold
-            ),),
+          title: Text("My Profile",
+            style: AppTextStyle.blackBoldfont,
+          ),
         ),
       body: SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ProfilePic(),
-          SizedBox(height: 20),
+          const ProfilePic(),
+          const SizedBox(height: 20),
           ProfileMenu(
             text: "Attendance Reports",
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Employee_Report()),
+                MaterialPageRoute(builder: (context) => const EmployeeReportPage()),
               );
             },
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Divider(
                 thickness: 0.2,
-                color: Colors.black,
+                color: AppColor.black,
               ),
           ),
           ProfileMenu(
@@ -47,37 +48,37 @@ class ListWorkingHours extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  Leave_Request()),
+                MaterialPageRoute(builder: (context) =>  const LeaveHistoryPage()),
               );
               },
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Divider(
               thickness: 0.2,
-              color: Colors.black,
+              color: AppColor.black,
             ),
           ),
           ProfileMenu(
             text: "Holiday list",
             press: () {},
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Divider(
               thickness: 0.2,
-              color: Colors.black,
+              color: AppColor.black,
             ),
           ),
           ProfileMenu(
             text: "Salary",
             press: () {},
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Divider(
               thickness: 0.2,
-              color: Colors.black,
+              color: AppColor.black,
             ),
           ),
           ProfileMenu(
@@ -85,26 +86,26 @@ class ListWorkingHours extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  Change_password()),
+                MaterialPageRoute(builder: (context) =>  const ChangePasswordPage()),
               );
             },
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Divider(
               thickness: 0.2,
-              color: Colors.black,
+              color: AppColor.black,
             ),
           ),
           ProfileMenu(
             text: "Sign out",
             press: () {},
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Divider(
               thickness: 0.2,
-              color: Colors.black,
+              color: AppColor.black,
             ),
           ),
         ],

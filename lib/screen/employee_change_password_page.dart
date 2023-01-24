@@ -1,12 +1,13 @@
+import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 
-class Change_password extends StatefulWidget {
-  const Change_password({super.key});
+class ChangePasswordPage extends StatefulWidget {
+  const ChangePasswordPage({super.key});
 
   @override
-  change_password createState() => change_password();
+  ChangePassword createState() => ChangePassword();
 }
-class change_password extends State<Change_password> {
+class ChangePassword extends State<ChangePasswordPage> {
    bool _obscureText = false;
   double screenHeight = 0;
   double screenWidth = 0;
@@ -19,18 +20,16 @@ class change_password extends State<Change_password> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: const Text("Change Password",
-          style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold
-          ),),
+        title: Text("Change Password",
+          style: AppTextStyle.blackBoldfont
+        ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
               child: SizedBox(
                 height: 50,
                 child: TextField(
@@ -54,7 +53,7 @@ class change_password extends State<Change_password> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: SizedBox(
                 height: 50,
                 child: TextField(
@@ -78,7 +77,7 @@ class change_password extends State<Change_password> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: SizedBox(
                 height: 50,
                 child: TextField(
@@ -92,15 +91,15 @@ class change_password extends State<Change_password> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 100),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 280),
               child: MaterialButton(
                 minWidth: screenWidth/1, // <-- Your width
                 height: screenHeight/13,
                 onPressed: (){
                 },
                 shape: const StadiumBorder(),
-                color: Colors.deepPurple,
-                textColor: Colors.white,
+                color: AppColor.deepPurple,
+                textColor: AppColor.white,
                 child:const Text('Chage Password'),
               ),
             ),

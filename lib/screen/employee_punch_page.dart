@@ -1,16 +1,17 @@
+import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
-class CheckIn extends StatefulWidget {
-  const CheckIn({Key? key}) : super(key: key);
+class EmployeePunchPage extends StatefulWidget {
+  const EmployeePunchPage({Key? key}) : super(key: key);
   @override
 
   Attendance createState() => Attendance();
 
 }
 
-class Attendance extends State<CheckIn>{
+class Attendance extends State<EmployeePunchPage>{
   double screenHeight = 0;
   double screenWidth = 0;
 
@@ -22,22 +23,22 @@ class Attendance extends State<CheckIn>{
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColor.white,
         centerTitle: true,
-        title: const Text('Krunal Patel',
+        title: Text('Krunal Patel',
         style: TextStyle(
-            color: Colors.black
+            color: AppColor.black
         ),),
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.home),
-          color: Colors.black,
+          icon: const Icon(Icons.home),
+          color: AppColor.black,
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
-            color: Colors.black,
+            icon: const Icon(Icons.more_vert),
+            color: AppColor.black,
           ),
         ],
       ),
@@ -46,18 +47,18 @@ class Attendance extends State<CheckIn>{
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 2),
+              margin: const EdgeInsets.only(top: 2),
               height: screenHeight / 2,
-              decoration: const BoxDecoration(
-                color: Colors.white,
+              decoration: BoxDecoration(
+                color: AppColor.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black26,
+                    color: AppColor.black26,
                     blurRadius: 10,
-                    offset: Offset(2,2),
+                    offset: const Offset(2,2),
                   )
                 ],
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
               ),
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,14 +66,10 @@ class Attendance extends State<CheckIn>{
                 children: [
                   Expanded(
                       child:Column(
-                        children: const [
+                        children: [
                           Text(
                             "Camera part",
-                            style: TextStyle(
-                                fontFamily: "NexaRegular",
-                                fontSize: 20,
-                                color: Colors.black,
-                            ),
+                            style:AppTextStyle.blackfont20,
                           )
                         ],
                       )
@@ -90,14 +87,14 @@ class Attendance extends State<CheckIn>{
                       //     child: Icon(Icons.access_time_rounded, color: Colors.purple,)),
                       text: DateTime.now().day.toString(),
                       style: TextStyle(
-                        color: Colors.black,
+                        color: AppColor.black,
                         fontSize: screenWidth / 25,
                       ),
                       children: [
                         TextSpan(
                     text: DateFormat(' MMMM yyyy / ').format(DateTime.now()),
                     style: TextStyle(
-                      color: Colors.black,
+                      color:  AppColor.black,
                       fontSize: screenWidth / 25,
                     ),
                   ),
@@ -114,7 +111,7 @@ class Attendance extends State<CheckIn>{
                         DateFormat('hh:mm:ss a').format(DateTime.now()),
                         style: TextStyle(
                           fontSize: screenWidth / 25,
-                          color: Colors.black,
+                          color: AppColor.black,
                         ),
                       ),
                     );
@@ -124,18 +121,18 @@ class Attendance extends State<CheckIn>{
 
             Container(
               width: 330,
-              margin: EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.only(top: 30),
               child: Builder(
                 builder: (context) {
                   final GlobalKey<SlideActionState> key = GlobalKey();
                   return SlideAction(
                     text: "Check In",
                     textStyle: TextStyle(
-                      color: Colors.white,
+                      color: AppColor.white,
                       fontSize: screenWidth / 20,
                     ),
-                    outerColor: Colors.deepPurple,
-                    innerColor: Colors.white,
+                    outerColor: AppColor.deepPurple,
+                    innerColor: AppColor.white,
                     key: key,
                     onSubmit: (){
                         key.currentState!.reset();

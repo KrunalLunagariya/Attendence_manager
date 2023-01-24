@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'screen/employee_edit_profile.dart';
 
-class ProfilePic extends StatelessWidget {
-  double screenHeight = 0;
-  double screenWidth = 0;
+class ProfilePic extends StatefulWidget {
 
-   ProfilePic({
+   const ProfilePic({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<ProfilePic> createState() => _ProfilePicState();
+}
+
+class _ProfilePicState extends State<ProfilePic> {
+  double screenHeight = 0;
+
+  double screenWidth = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +23,7 @@ class ProfilePic extends StatelessWidget {
     return Container(
       // width: screenWidth / 1.1,
       height: screenHeight / 6.5,
-      padding: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -29,6 +37,7 @@ class ProfilePic extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
                           "Krunal Patel",
@@ -54,13 +63,13 @@ class ProfilePic extends StatelessWidget {
                 Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: IconButton(
-                      icon:  Icon(Icons.edit,color: Colors.blue),
+                      icon:  const Icon(Icons.edit,color: Colors.blue),
                       alignment: Alignment.topRight,
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) =>  Edit_Profile()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  const EditProfilePage()),
+                        );
                       },
                     ),
                   ),

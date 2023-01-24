@@ -1,4 +1,5 @@
-// ignore_for_file: use_build_context_synchronously, avoid_print
+// ignore_for_file: use_build_context_synchronously, avoid_print, must_be_immutable
+import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:AttendanceSystem/api_manager.dart';
@@ -7,8 +8,8 @@ import '../custom_text_field.dart';
 import 'login_page.dart';
 import '../routs.dart';
 
-class Regsiter extends StatelessWidget {
-   Regsiter({super.key});
+class RegsiterPage extends StatelessWidget {
+  RegsiterPage({super.key});
 
   final formKey = GlobalKey<FormState>();
    final emailText = TextEditingController();
@@ -72,28 +73,24 @@ class Regsiter extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 190),
-            const Text(
+             Text(
               'Registration',
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepPurple,
-              ),
+              style: AppTextStyle.deepPurplefontbold50
             ),
             const SizedBox(height: 20),
-            const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: CustomTextField(hintText: "Enter User Name", prefixIcon: Icon(Icons.person, color: Colors.black),)),
+             Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CustomTextField(hintText: "Enter User Name", prefixIcon: Icon(Icons.person, color: AppColor.black),)),
              Padding(
                 // ignore: prefer_const_constructors
                 padding: EdgeInsets.all(8.0),
-                child: CustomTextField(hintText: "Enter Email", prefixIcon: const Icon(Icons.email, color: Colors.black), controller: emailText,)),
+                child: CustomTextField(hintText: "Enter Email", prefixIcon:  Icon(Icons.email, color: AppColor.black), controller: emailText,)),
              Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: CustomTextField(hintText: "Enter Password", prefixIcon: const Icon(Icons.lock, color: Colors.black), obscureText: true, controller: passwordText,)),
-            const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: CustomTextField(hintText: "Retype Password", prefixIcon: Icon(Icons.lock, color: Colors.black),obscureText: true,)),
+                child: CustomTextField(hintText: "Enter Password", prefixIcon:  Icon(Icons.lock, color: AppColor.black), obscureText: true, controller: passwordText,)),
+             Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CustomTextField(hintText: "Retype Password", prefixIcon: Icon(Icons.lock, color: AppColor.black),obscureText: true,)),
             Padding(
               padding:  const EdgeInsets.all(8.0),
               child: MaterialButton(
@@ -108,11 +105,11 @@ class Regsiter extends StatelessWidget {
                   callRegisterApi(context);
                 },
                 shape: const StadiumBorder(),
-                color: Colors.deepPurple,
-                textColor: Colors.white,
-                child: const Text(
+                color: AppColor.deepPurple,
+                textColor: AppColor.white,
+                child: Text(
                   'Register',
-                  style: TextStyle(fontSize: 16),
+                  style: AppTextStyle.simplefont16,
                 ),
               ),
             ),
@@ -120,16 +117,16 @@ class Regsiter extends StatelessWidget {
             Center(
               child :RichText(
                 text: TextSpan(children: [
-                  const TextSpan(
+                   TextSpan(
                     text: 'Already have\'n account? ',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: AppColor.black,
                     ),
                   ),
                   TextSpan(
                       text: 'Login now',
-                      style: const TextStyle(
-                        color: Colors.blue,
+                      style: TextStyle(
+                        color: AppColor.blue,
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {

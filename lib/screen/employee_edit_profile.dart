@@ -1,0 +1,115 @@
+import 'package:AttendanceSystem/app_manage.dart';
+import 'package:flutter/material.dart';
+
+class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({super.key});
+
+  @override
+  EditProfile createState() => EditProfile();
+}
+class EditProfile extends State<EditProfilePage> {
+  bool _obscureText = false;
+  double screenHeight = 0;
+  double screenWidth = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        title: Text("Change Password",
+          // style: TextStyle(
+          //     color: Colors.black,
+          //     fontWeight: FontWeight.bold
+          // ),
+          style: AppTextStyle.blackBoldfont
+        ),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
+              child: SizedBox(
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    suffixIcon: GestureDetector(onTap: (){
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                      child: Icon(_obscureText
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ),
+                    labelText: 'Current Password',
+                  ),
+                  obscureText: _obscureText,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              child: SizedBox(
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    suffixIcon: GestureDetector(onTap: (){
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                      child: Icon(_obscureText
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ),
+                    labelText: 'New Password',
+                  ),
+                  obscureText: _obscureText,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              child: SizedBox(
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    labelText: 'Confirm Password',
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 280),
+              child: MaterialButton(
+                minWidth: screenWidth/1, // <-- Your width
+                height: screenHeight/13,
+                onPressed: (){
+                },
+                shape: const StadiumBorder(),
+                color: Colors.deepPurple,
+                textColor: Colors.white,
+                child:const Text('Chage Password'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

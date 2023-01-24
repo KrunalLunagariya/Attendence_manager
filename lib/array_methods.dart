@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, non_constant_identifier_names, avoid_types_as_parameter_names
+// ignore_for_file: avoid_print, non_constant_identifier_names, avoid_types_as_parameter_names, unnecessary_brace_in_string_interps, avoid_function_literals_in_foreach_calls
 class DetailModel {
   String name;
   int age;
@@ -44,7 +44,7 @@ void main() {
   //**listDetail.add(DetailModel(name: "Chirag", status: "Ui & Ux", age: 22));
   //**listDetail.insert(2,(DetailModel(name: "Chirag", status: "Ui & Ux", age: 22)));
   //**print(listDetail.getRange(0,3));
-  //**listDetail.forEach((detailmodel) => print(detailmodel));
+  listDetail.forEach((detailmodel) => print(detailmodel));
   //var contain = listDetail.where((element) =>element.name == "sahil");
   // var map = listDetail.map((e){
   //   return {
