@@ -5,6 +5,8 @@ import 'package:AttendanceSystem/screen/employee_leave_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../all_string.dart';
+
 class LeaveRequestPage extends StatefulWidget {
   const LeaveRequestPage({super.key});
 
@@ -39,7 +41,7 @@ class LeaveRequest extends State<LeaveRequestPage> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,
-          title: Text("Leave Request",
+          title: Text(AppbarTitleString.leaveRequest,
             // style: TextStyle(
             //     color: Colors.black,
             //     fontWeight: FontWeight.bold
@@ -61,7 +63,7 @@ class LeaveRequest extends State<LeaveRequestPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    labelText: 'From Date',
+                    labelText: LocalisationString.lblFromDate,
                   ),
                   onTap: () async {
                     DateTime? fromPickeddate = await showDatePicker(
@@ -88,7 +90,7 @@ class LeaveRequest extends State<LeaveRequestPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    labelText: 'To Date',
+                    labelText: LocalisationString.lblToDate,
                   ),
                   onTap: () async {
                     DateTime? toPickeddate = await showDatePicker(
@@ -115,7 +117,7 @@ class LeaveRequest extends State<LeaveRequestPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    labelText: 'Leave Title',
+                    labelText: LocalisationString.lblLeaveTitle,
                   ),
                 ),
               ),
@@ -131,9 +133,9 @@ class LeaveRequest extends State<LeaveRequestPage> {
                     )
                   ),
                   value: value,
-                  items: const [
-                    DropdownMenuItem(child: Text("reqest leave for half day"),value: "1",),
-                    DropdownMenuItem(child: Text("reqest leave for full day"),value: "2",),
+                  items: [
+                    DropdownMenuItem(child: Text(DropdownString.halfDay),value: "1",),
+                    DropdownMenuItem(child: Text(DropdownString.fullDay),value: "2",),
                   ],
                   onChanged: (String? selectValue){
                     setState(() {
@@ -148,7 +150,7 @@ class LeaveRequest extends State<LeaveRequestPage> {
               child: TextFormField(
                 controller: reasonController,
                 decoration: InputDecoration(
-                  hintText: "Reason of leave(optional)",
+                  hintText: HintTextString.reasonOfLeave,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15)
                     )
@@ -183,13 +185,13 @@ class LeaveRequest extends State<LeaveRequestPage> {
                 shape: const StadiumBorder(),
                 color: AppColor.deepPurple,
                 textColor: AppColor.white,
-                child:const Text('Send Leave Request'),
+                child:Text(ButtonString.sendLeaveRequest),
               ),
             ),
             const SizedBox(height: 10),
             leaveDetails.isEmpty
-                ? const Text(
-              'No Leaves yet..',
+                ? Text(
+              TextString.noLeavesYet,
               style: TextStyle(fontSize: 22),
             )
                 : SizedBox(

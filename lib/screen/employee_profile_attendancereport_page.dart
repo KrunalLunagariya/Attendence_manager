@@ -4,6 +4,8 @@ import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../all_string.dart';
+
 class EmployeeReportPage extends StatefulWidget {
   const EmployeeReportPage({Key? key}) : super(key: key);
   @override
@@ -51,7 +53,7 @@ class Attendance extends State<EmployeeReportPage>{
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text('Report ',
+          title: Text(AppbarTitleString.report,
             style: TextStyle(
                 color: AppColor.black
             ),),
@@ -84,7 +86,7 @@ class Attendance extends State<EmployeeReportPage>{
                              Text.rich(
                               TextSpan(
                                 children: <TextSpan>[
-                                  TextSpan(text: 'employee name',
+                                  TextSpan(text: TextString.employeeName,
                                       style: AppTextStyle.boldfont20
                                   ),
                                 ],

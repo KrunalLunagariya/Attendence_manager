@@ -1,3 +1,4 @@
+import 'package:AttendanceSystem/all_string.dart';
 import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class LeaveHistory extends State<LeaveHistoryPage> {
       appBar:AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: Text('Leave Request', style: AppTextStyle.blackBoldfont,),
+        title: Text(AppbarTitleString.leaveRequest, style: AppTextStyle.blackBoldfont,),
         actions: <Widget>[
            IconButton(
              alignment: Alignment.center,
@@ -43,8 +44,8 @@ class LeaveHistory extends State<LeaveHistoryPage> {
         child: Column(
           children: [
             leaveDetails.isEmpty
-                ? const Text(
-              'No Leaves yet..',
+                ? Text(
+             TextString.noLeavesYet,
               style: TextStyle(fontSize: 22),
             )
                 : SizedBox(

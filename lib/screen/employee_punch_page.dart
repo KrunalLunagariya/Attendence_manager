@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
+import '../all_string.dart';
+
 class EmployeePunchPage extends StatefulWidget {
   const EmployeePunchPage({Key? key}) : super(key: key);
   @override
@@ -25,7 +27,7 @@ class Attendance extends State<EmployeePunchPage>{
       appBar: AppBar(
         backgroundColor: AppColor.white,
         centerTitle: true,
-        title: Text('Krunal Patel',
+        title: Text(AppbarTitleString.employeeName,
         style: TextStyle(
             color: AppColor.black
         ),),
@@ -126,7 +128,7 @@ class Attendance extends State<EmployeePunchPage>{
                 builder: (context) {
                   final GlobalKey<SlideActionState> key = GlobalKey();
                   return SlideAction(
-                    text: "Check In",
+                    text: SlideButtonString.checkIn,
                     textStyle: TextStyle(
                       color: AppColor.white,
                       fontSize: screenWidth / 20,

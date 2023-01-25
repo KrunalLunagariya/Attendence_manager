@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously, avoid_print, must_be_immutable
 import 'package:AttendanceSystem/app_manage.dart';
+import 'package:AttendanceSystem/utils/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:AttendanceSystem/api_manager.dart';
@@ -31,9 +32,7 @@ class RegsiterPage extends StatelessWidget {
        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
      } else {
        EasyLoading.dismiss();
-       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-         content: Text('Register Not Succesfull!'),
-       ));
+      showSnackBar(context: context, message: 'Register Not Succesfull!');
      }
      print(response);
      // service.apiCallLogin(

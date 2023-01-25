@@ -1,5 +1,6 @@
 import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
+import '../all_string.dart';
 
 class ChangePasswordPage extends StatefulWidget {
   const ChangePasswordPage({super.key});
@@ -20,8 +21,8 @@ class ChangePassword extends State<ChangePasswordPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: Text("Change Password",
-          style: AppTextStyle.blackBoldfont
+        title: Text(AppbarTitleString.changePassword,
+            style: AppTextStyle.blackBoldfont
         ),
       ),
       body: SingleChildScrollView(
@@ -46,7 +47,7 @@ class ChangePassword extends State<ChangePasswordPage> {
                           ? Icons.visibility_off
                           : Icons.visibility),
                     ),
-                    labelText: 'Current Password',
+                    labelText: LocalisationString.lblCurrentPassword,
                   ),
                   obscureText: _obscureText,
                 ),
@@ -70,7 +71,7 @@ class ChangePassword extends State<ChangePasswordPage> {
                           ? Icons.visibility_off
                           : Icons.visibility),
                     ),
-                    labelText: 'New Password',
+                    labelText: LocalisationString.lblNewPassword,
                   ),
                   obscureText: _obscureText,
                 ),
@@ -85,7 +86,7 @@ class ChangePassword extends State<ChangePasswordPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    labelText: 'Confirm Password',
+                    labelText: LocalisationString.lblConfirmPassword,
                   ),
                 ),
               ),
@@ -100,7 +101,7 @@ class ChangePassword extends State<ChangePasswordPage> {
                 shape: const StadiumBorder(),
                 color: AppColor.deepPurple,
                 textColor: AppColor.white,
-                child:const Text('Chage Password'),
+                child: Text(ButtonString.changePassword),
               ),
             ),
           ],

@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../app_manage.dart';
+import '../all_string.dart';
 import 'home_screen.dart';
 import 'register_page.dart';
 import '../routs.dart';
@@ -102,7 +103,7 @@ class Loginpage extends State<Home> {
               ),
               const SizedBox(height: 10),
                Text(
-                'Welcome back you\'ve been missed!',
+                LocalisationString.lblLoginWelcomeMessage,
                 style: AppTextStyle.blackfont16,
               ),
               const SizedBox(height: 10),

@@ -12,12 +12,6 @@ class AppColor {
   static Color deepPurpleAccent = Colors.deepPurpleAccent;
 }
 
-
-// class AppString{
-//   static Text labelText = labelText:'New Password';
-// }
-
-
 class AppTextStyle {
   static TextStyle simplefont19 = const TextStyle(fontSize: 19);
   static TextStyle simplefont16 = const TextStyle(fontSize: 16);

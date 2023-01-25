@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
+import '../all_string.dart';
 import 'employee_change_password_page.dart';
 import 'employee_leave_history_page.dart';
 import 'employee_profile_attendancereport_page.dart';
@@ -16,7 +17,7 @@ class EmployeeProfilePage extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,
-          title: Text("My Profile",
+          title: Text(AppbarTitleString.myProfile,
             style: AppTextStyle.blackBoldfont,
           ),
         ),
@@ -28,7 +29,7 @@ class EmployeeProfilePage extends StatelessWidget {
           const ProfilePic(),
           const SizedBox(height: 20),
           ProfileMenu(
-            text: "Attendance Reports",
+            text: ProfileMenuString.attendanceReports,
             press: () {
               Navigator.push(
                 context,
@@ -44,7 +45,7 @@ class EmployeeProfilePage extends StatelessWidget {
               ),
           ),
           ProfileMenu(
-            text: "Leave Request",
+            text: ProfileMenuString.leaveRequest,
             press: () {
               Navigator.push(
                 context,
@@ -60,7 +61,7 @@ class EmployeeProfilePage extends StatelessWidget {
             ),
           ),
           ProfileMenu(
-            text: "Holiday list",
+            text: ProfileMenuString.holidayList,
             press: () {},
           ),
            Padding(
@@ -71,7 +72,7 @@ class EmployeeProfilePage extends StatelessWidget {
             ),
           ),
           ProfileMenu(
-            text: "Salary",
+            text: ProfileMenuString.salary,
             press: () {},
           ),
            Padding(
@@ -82,7 +83,7 @@ class EmployeeProfilePage extends StatelessWidget {
             ),
           ),
           ProfileMenu(
-            text: "Change Password",
+            text: ProfileMenuString.changePassword,
             press: () {
               Navigator.push(
                 context,
@@ -98,7 +99,7 @@ class EmployeeProfilePage extends StatelessWidget {
             ),
           ),
           ProfileMenu(
-            text: "Sign out",
+            text: ProfileMenuString.singOut,
             press: () {},
           ),
            Padding(
