@@ -46,7 +46,7 @@ class LeaveHistory extends State<LeaveHistoryPage> {
             leaveDetails.isEmpty
                 ? Text(
              TextString.noLeavesYet,
-              style: TextStyle(fontSize: 22),
+              style: const TextStyle(fontSize: 22),
             )
                 : SizedBox(
               height: 150,

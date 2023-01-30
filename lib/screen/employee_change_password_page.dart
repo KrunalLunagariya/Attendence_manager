@@ -12,7 +12,7 @@ class ChangePassword extends State<ChangePasswordPage> {
    bool _obscureText = false;
   double screenHeight = 0;
   double screenWidth = 0;
-
+  
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;

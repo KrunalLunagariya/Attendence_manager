@@ -1,7 +1,6 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:AttendanceSystem/app_manage.dart';
-import 'package:AttendanceSystem/screen/employee_leave_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -192,7 +191,7 @@ class LeaveRequest extends State<LeaveRequestPage> {
             leaveDetails.isEmpty
                 ? Text(
               TextString.noLeavesYet,
-              style: TextStyle(fontSize: 22),
+              style: const TextStyle(fontSize: 22),
             )
                 : SizedBox(
               height: 150,
