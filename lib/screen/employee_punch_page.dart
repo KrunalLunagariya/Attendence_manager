@@ -82,47 +82,50 @@ class Attendance extends State<EmployeePunchPage>{
                 ],
               )
             ),
-            Row(
-              children: [
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  child: RichText(
-                    text: TextSpan(
-                      // WidgetSpan(
-                      //     child: Icon(Icons.access_time_rounded, color: Colors.purple,)),
-                      text: DateTime.now().day.toString(),
-                      style: TextStyle(
-                        color: AppColor.black,
+            Padding(
+              padding: EdgeInsets.only(left:80),
+              child: Row(
+                children: [
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    child: RichText(
+                      text: TextSpan(
+                        // WidgetSpan(
+                        //     child: Icon(Icons.access_time_rounded, color: Colors.purple,)),
+                        text: DateTime.now().day.toString(),
+                        style: TextStyle(
+                          color: AppColor.black,
+                          fontSize: screenWidth / 25,
+                        ),
+                        children: [
+                          TextSpan(
+                          text: DateFormat(' MMMM yyyy / ').format(DateTime.now()),
+                          style: TextStyle(
+                        color:  AppColor.black,
                         fontSize: screenWidth / 25,
                       ),
-                      children: [
-                        TextSpan(
-                    text: DateFormat(' MMMM yyyy / ').format(DateTime.now()),
-                    style: TextStyle(
-                      color:  AppColor.black,
-                      fontSize: screenWidth / 25,
                     ),
-                  ),
-                      ],
-                    ),
-                  ),
-                ),
-                StreamBuilder(
-                  stream: Stream.periodic(const Duration(seconds: 1)),
-                  builder: (context, snapshot) {
-                    return Container(
-                      alignment: Alignment.bottomCenter,
-                      child: Text(
-                        DateFormat('hh:mm:ss a').format(DateTime.now()),
-                        style: TextStyle(
-                          fontSize: screenWidth / 25,
-                          color: AppColor.black,
-                        ),
+                        ],
                       ),
-                    );
-                  }
-                )
+                    ),
+                  ),
+                  StreamBuilder(
+                    stream: Stream.periodic(const Duration(seconds: 1)),
+                    builder: (context, snapshot) {
+                      return Container(
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                          DateFormat('hh:mm:ss a').format(DateTime.now()),
+                          style: TextStyle(
+                            fontSize: screenWidth / 25,
+                            color: AppColor.black,
+                          ),
+                        ),
+                      );
+                    }
+                  )
     ]),
+            ),
 
             Container(
               width: 330,

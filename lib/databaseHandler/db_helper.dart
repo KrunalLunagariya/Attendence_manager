@@ -34,13 +34,27 @@ class DbHelper{
         " $C_UserName TEXT, "
         " $C_Email TEXT,"
         " $C_Password TEXT, "
-        " PRIMARY KEY ($C_Email)"
+        " id AUTOINCREMENT PRIMARY KEY"
         ")");
   }
-  Future<UserModel> saveData(UserModel user)async{
+
+      Future<UserModel> saveData(UserModel user)async{
       var dbClient = await db;
       user.user_name = (await dbClient?.insert(Table_User, user.toMap())) as String?;
       return user;
+  }
+
+  Future<UserModel?> getLoginUser(String email, String password) async {
+    var dbClient = await db;
+    var res = await dbClient?.rawQuery("SELECT * FROM $Table_User WHERE "
+        "$C_Email = '$email' AND "
+        "$C_Password = '$password'");
+
+    if (res!.length > 0) {
+      return UserModel.fromMap(res.first);
+    }
+
+    return null;
   }
 }
 

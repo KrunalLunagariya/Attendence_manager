@@ -8,7 +8,7 @@ import 'package:AttendanceSystem/api_manager.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../custom_text_field.dart';
-import '../databaseHandler/DbHelper.dart';
+import '../databaseHandler/db_helper.dart';
 import 'login_page.dart';
 import '../routs.dart';
 
@@ -34,29 +34,33 @@ class RegsiterPageDesign extends State<RegsiterPage> {
    @override
    initState() {
      super.initState();
+     dbHelper = DbHelper();
    }
 
-  signUp(){
+  signUp() async {
      String uname = conUserName.text;
      String emial = conEmail.text;
      String passwd = conPassword.text;
      String cpasswd = conConfirmPassword.text;
+     // print("password");
+     // print("${passwd} $cpasswd");
+     // print("${passwd != cpasswd}");
+     // print("${formKey.currentState!.validate()}");
      if(formKey.currentState!.validate()){
         if(passwd != cpasswd){
-          return 'Password MisMatch';
-        }else{
+          Fluttertoast.showToast(msg: "Password Mismatch", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 1, backgroundColor: Colors.red, textColor: Colors.white, fontSize: 16.0);
+        }else {
           formKey.currentState?.save();
+
           UserModel uModel = UserModel(uname, emial, passwd);
-          dbHelper.saveData(uModel);
-          Fluttertoast.showToast(
-              msg: "Register Succesfull",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.CENTER,
-              timeInSecForIosWeb: 1,
-              backgroundColor: Colors.green,
-              textColor: Colors.white,
-              fontSize: 16.0
-          );
+          await dbHelper.saveData(uModel).then((userData) {
+            Fluttertoast.showToast(msg: "Successfully Saved", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 1, backgroundColor: Colors.green, textColor: Colors.white, fontSize: 16.0);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => Home()));
+          }).catchError((error) {
+            print(error.toString());
+            Fluttertoast.showToast(msg: "Error: Data Save Fail", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 1, backgroundColor: Colors.red, textColor: Colors.white, fontSize: 16.0);
+          });
         }
      }
    }
@@ -76,7 +80,7 @@ class RegsiterPageDesign extends State<RegsiterPage> {
    //   }
    //   print(response);
    //   // service.apiCallLogin(
-   //   //   {
+   //   //  " {
    //   //     "email": emailText.text,
    //   //     "password": passwordText.text,
    //   //   },

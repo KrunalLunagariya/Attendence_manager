@@ -50,7 +50,7 @@ class HolidayPageDesign extends State<HolidayPage> {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Expanded(

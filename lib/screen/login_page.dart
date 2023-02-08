@@ -3,8 +3,10 @@ import 'package:AttendanceSystem/api_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../app_manage.dart';
 import '../all_string.dart';
+import '../databaseHandler/db_helper.dart';
 import 'home_screen.dart';
 import 'register_page.dart';
 import '../routs.dart';
@@ -18,32 +20,65 @@ class Home extends StatefulWidget{
 class Loginpage extends State<Home> {
   // key for form
   final formKey = GlobalKey<FormState>();
-  final emailText = TextEditingController();
-  final passwordText = TextEditingController();
+  final controllerEmail = TextEditingController();
+  final controllerPassword = TextEditingController();
   final service = ApiServices();
+  var dbHelper;
   bool _obscureText = false;
   double screenHeight = 0;
   double screenWidth = 0;
 
-  //MARK:API Call
-  callLoginApi() async{
-    EasyLoading.show(status: 'loading...');
-    var response =await  service.doLogin(emailText.text, passwordText.text);
-    if (response != null){
-      EasyLoading.dismiss();
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil(Routes.login,(Route<dynamic> route) => false);
-      // const snackBar = SnackBar(content: Text('Login Done'));
-      // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-    else {
-      EasyLoading.dismiss();
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Login Not Succesfull!'),
-      ));
-    }
-    print(response);
+  @override
+  initState() {
+    super.initState();
+    dbHelper = DbHelper();
   }
+
+  login() async {
+    String email = controllerEmail.text;
+    String passwd = controllerPassword.text;
+
+    if(email.isEmpty){
+      Fluttertoast.showToast(msg: "Emial field is Required", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 1, backgroundColor: Colors.red, textColor: Colors.white, fontSize: 16.0);
+    }else if(passwd.isEmpty){
+      Fluttertoast.showToast(msg: "Password field is Required", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 1, backgroundColor: Colors.red, textColor: Colors.white, fontSize: 16.0);
+    }else{
+      await dbHelper.getLoginUser(email, passwd).then((userData) {
+        if(userData != null) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (_) => MyHomePage()),
+                  (Route<dynamic> route) => false);
+        } else {
+          Fluttertoast.showToast(msg: "Error: User not found", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 1, backgroundColor: Colors.red, textColor: Colors.white, fontSize: 16.0);
+        }
+      }).catchError((error) {
+        print(error);
+        Fluttertoast.showToast(msg: "Error: Login Fail", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 1, backgroundColor: Colors.red, textColor: Colors.white, fontSize: 16.0);
+      });
+    }
+  }
+
+  //MARK:API Call
+  // callLoginApi() async{
+  //   EasyLoading.show(status: 'loading...');
+  //   var response =await  service.doLogin(emailText.text, passwordText.text);
+  //   if (response != null){
+  //     EasyLoading.dismiss();
+  //     Navigator.of(context)
+  //         .pushNamedAndRemoveUntil(Routes.login,(Route<dynamic> route) => false);
+  //     // const snackBar = SnackBar(content: Text('Login Done'));
+  //     // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  //   }
+  //   else {
+  //     EasyLoading.dismiss();
+  //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+  //       content: Text('Login Not Succesfull!'),
+  //     ));
+  //   }
+  //   print(response);
+  // }
+
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +146,7 @@ class Loginpage extends State<Home> {
                 child :Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller: emailText,
+                    controller: controllerEmail,
                     decoration: InputDecoration(
                       fillColor: AppColor.transparent,
                       border: OutlineInputBorder(
@@ -137,7 +172,7 @@ class Loginpage extends State<Home> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                      controller: passwordText,
+                      controller: controllerPassword,
                       obscureText: _obscureText,
                       decoration: InputDecoration(
                         fillColor: AppColor.transparent,
@@ -176,10 +211,11 @@ class Loginpage extends State<Home> {
                   onPressed: (){
                     //if(formKey.currentState!.validate()){}
                     //callLoginApi();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  const MyHomePage()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) =>  const MyHomePage()),
+                    // );
+                    login();
                   },
                   shape: const StadiumBorder(),
                   color: AppColor.deepPurple,
