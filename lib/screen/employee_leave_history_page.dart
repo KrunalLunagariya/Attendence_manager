@@ -18,6 +18,9 @@ class LeaveHistory extends State<LeaveHistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(AppbarTitleString.leaveRequest, style: AppTextStyle.blackBoldfont,),

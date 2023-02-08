@@ -115,7 +115,7 @@ class Attendance extends State<EmployeeReportPage>{
                             ),
                               ],
                         ),
-                        const Text('-- To --'),
+                        const Text('-- To --',style: TextStyle(fontSize: 20),),
                         Icon(Icons.calendar_month_rounded, size: 24 ,color:AppColor.blue,),
                         OutlinedButton(
                           style: OutlinedButton.styleFrom(

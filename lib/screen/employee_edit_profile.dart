@@ -18,6 +18,9 @@ class EditProfile extends State<EditProfilePage> {
     screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         title: Text(AppbarTitleString.editProfile,
@@ -29,8 +32,8 @@ class EditProfile extends State<EditProfilePage> {
         child:Column(
           children: [
             SizedBox(
-          height: 155,
-          width: 155,
+          height: 150,
+          width: 150,
           child: Stack(fit: StackFit.expand, children: [
              const Positioned(
               right: 20,
@@ -43,7 +46,7 @@ class EditProfile extends State<EditProfilePage> {
               ),
             ),
             Positioned(
-                right: 0,
+                right: 15,
                 bottom: 10,
                 child: SizedBox(
                     height: 46,
@@ -57,178 +60,191 @@ class EditProfile extends State<EditProfilePage> {
           ),
         ),
             const SizedBox(height: 40),
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child:Icon(Icons.person,size: 35,color: Colors.grey,)
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Name",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Text(
-                        "Krunal Patel",
-                        style: TextStyle(
-                          fontSize: 21,
-                          color: Colors.black,
-
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: IconButton(
-                    icon:  const Icon(Icons.edit,color: Colors.blue),
-                    alignment: Alignment.topRight,
-                    onPressed: () {
-                    },
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Divider(
-                thickness: 0.2,
-                color: AppColor.black,
-              ),
-            ),
-            Row(
-              children: [
-                const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child:Icon(Icons.error_outline,size: 35,color: Colors.grey,)
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "About",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Text(
-                        "Flutter Developer",
-                        style: TextStyle(
-                          fontSize: 21,
-                          color: Colors.black,
-
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: IconButton(
-                    icon:  const Icon(Icons.edit,color: Colors.blue),
-                    alignment: Alignment.topRight,
-                    onPressed: () {}
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Divider(
-                thickness: 0.2,
-                color: AppColor.black,
-              ),
-            ),
-            Row(
-              children: [
-                const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child:Icon(Icons.call,size: 35,color: Colors.grey,)
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Phone Number",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Text(
-                        "12345 67899",
-                        style: TextStyle(
-                          fontSize: 21,
-                          color: Colors.black,
-
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Divider(
-                thickness: 0.2,
-                color: AppColor.black,
-              ),
-            ),
-            Row(
-              children: [
-                const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child:Icon(Icons.email,size: 35,color: Colors.grey,)
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Email",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Text(
-                        "Krunalpatel111@gmail.com",
-                        style: TextStyle(
-                          fontSize: 21,
-                          color: Colors.black,
-
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Divider(
-                thickness: 0.2,
-                color: AppColor.black,
-              ),
-            ),
+            getTextAreaWidget(),
           ]),
             )
           )
+    );
+  }
+
+  Widget getTextAreaWidget({Icon? icon,String? labelText,String? value}){
+    return  Column(
+      children: [
+        Row(
+          children: [
+             Padding(
+                padding:  const EdgeInsets.all(8.0),
+                child: icon ?? const Icon(Icons.person,size: 30,color: Colors.grey,)
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      labelText ?? "Name",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.grey,
+                      ),
+                    ),
+                    Text(
+                      value ?? "Krunal patel",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon:  icon ?? const Icon(Icons.edit,color: Colors.blue),
+                alignment: Alignment.topRight,
+                onPressed: () {
+                },
+              ),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Divider(
+            thickness: 0.2,
+            color: AppColor.black,
+          ),
+        ),
+        Row(
+          children: [
+            Padding(
+                padding:  const EdgeInsets.all(8.0),
+                child: icon ?? const Icon(Icons.error_outline,size: 30,color: Colors.grey,)
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      labelText ?? "About",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.grey,
+                      ),
+                    ),
+                    Text(
+                      value ?? "Flutter Developer",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon:  icon ?? const Icon(Icons.edit,color: Colors.blue),
+                alignment: Alignment.topRight,
+                onPressed: () {
+                },
+              ),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Divider(
+            thickness: 0.2,
+            color: AppColor.black,
+          ),
+        ),
+        Row(
+          children: [
+            Padding(
+                padding:  const EdgeInsets.all(8.0),
+                child: icon ?? const Icon(Icons.phone,size: 30,color: Colors.grey,)
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      labelText ?? "Phone Number",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.grey,
+                      ),
+                    ),
+                    Text(
+                      value ?? "1234567896",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Divider(
+            thickness: 0.2,
+            color: AppColor.black,
+          ),
+        ),
+        Row(
+          children: [
+            Padding(
+                padding:  const EdgeInsets.all(8.0),
+                child: icon ?? const Icon(Icons.mail,size: 30,color: Colors.grey,)
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      labelText ?? "Email",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.grey,
+                      ),
+                    ),
+                    Text(
+                      value ?? "Krunalpatel111@gmail.com",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColor.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Divider(
+            thickness: 0.2,
+            color: AppColor.black,
+          ),
+        ),
+        ]
     );
   }
 }

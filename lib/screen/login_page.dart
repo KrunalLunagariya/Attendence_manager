@@ -117,7 +117,7 @@ class Loginpage extends State<Home> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(35),
                       ),
-                      hintText: "Mobile Number",
+                      hintText: "Email Id",
                       contentPadding: const EdgeInsets.all(8),
                       prefixIcon: Icon(Icons.email ,color: AppColor.black),
                     ),

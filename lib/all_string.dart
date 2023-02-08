@@ -5,6 +5,7 @@ class LocalisationString {
   static String lblLeaveTitle= "Leave Title";
   static String lblFromDate= "From Date";
   static String lblToDate= "To Date";
+  static String lblName= "Name";
   static String lblConfirmPassword= "Confirm Password";
   static String lblLoginWelcomeMessage = "Welcome back you\'ve been missed!";
 

@@ -26,7 +26,6 @@ class AppTextStyle {
   static TextStyle bluefont15 = const TextStyle(fontSize: 15,color: Colors.blue);
   static TextStyle deepPurplefontbold50 = const TextStyle(fontSize: 50,color: Colors.deepPurple, fontWeight: FontWeight.bold,);
   static TextStyle boldfont25 = const TextStyle(fontWeight: FontWeight.bold,fontSize: 25);
-  static TextStyle blackboldfont = const TextStyle(fontWeight: FontWeight.bold,color: Colors.black);
   static TextStyle blackcolor = TextStyle(color: AppColor.black);
   static TextStyle whiteBoldfont = const TextStyle(fontWeight: FontWeight.bold, color: Colors.white);
   static TextStyle boldfont = const TextStyle(fontWeight: FontWeight.bold);

@@ -25,6 +25,9 @@ class Attendance extends State<EmployeePunchPage>{
 
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         backgroundColor: AppColor.white,
         centerTitle: true,
         title: Text(AppbarTitleString.employeeName,

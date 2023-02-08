@@ -3,6 +3,7 @@ import 'package:AttendanceSystem/app_manage.dart';
 import 'package:flutter/material.dart';
 import '../all_string.dart';
 import 'employee_change_password_page.dart';
+import 'employee_holiday_list_page.dart';
 import 'employee_leave_history_page.dart';
 import 'employee_profile_attendancereport_page.dart';
 import '../profile_menu.dart';
@@ -62,7 +63,12 @@ class EmployeeProfilePage extends StatelessWidget {
           ),
           ProfileMenu(
             text: ProfileMenuString.holidayList,
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HolidayPage()),
+              );
+            },
           ),
            Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),

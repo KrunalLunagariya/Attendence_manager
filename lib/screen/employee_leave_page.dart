@@ -38,6 +38,9 @@ class LeaveRequest extends State<LeaveRequestPage> {
     screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
+          iconTheme: const IconThemeData(
+            color: Colors.black, //change your color here
+          ),
           centerTitle: true,
           backgroundColor: Colors.white,
           title: Text(AppbarTitleString.leaveRequest,

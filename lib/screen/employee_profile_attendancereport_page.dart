@@ -52,6 +52,9 @@ class Attendance extends State<EmployeeReportPage>{
 
     return Scaffold(
         appBar: AppBar(
+          iconTheme: const IconThemeData(
+            color: Colors.black, //change your color here
+          ),
           backgroundColor: Colors.white,
           title: Text(AppbarTitleString.report,
             style: TextStyle(
