@@ -4,6 +4,17 @@
       <PhysicalDevice>
         <key>
           <Key>
+            <type value="DOMAIN_NAME" />
+            <value value="adb-SWMBXW5PFUWCTCX4-uMNLgC._adb-tls-connect._tcp" />
+          </Key>
+        </key>
+        <name value="realme RMX2002" />
+        <target value="Android 11.0" />
+        <api value="androidversion:30:null:null:true" />
+      </PhysicalDevice>
+      <PhysicalDevice>
+        <key>
+          <Key>
             <type value="SERIAL_NUMBER" />
             <value value="SWMBXW5PFUWCTCX4" />
           </Key>
@@ -22,16 +33,6 @@
         <name value="samsung SM-E135F" />
         <target value="Android 13.0" />
         <api value="androidversion:33:null:null:true" />
-      </PhysicalDevice>
-      <PhysicalDevice>
-        <key>
-          <Key>
-            <type value="DOMAIN_NAME" />
-            <value value="adb-SWMBXW5PFUWCTCX4-uMNLgC._adb-tls-connect._tcp" />
-          </Key>
-        </key>
-        <name value="Device" />
-        <target value="Android 1.0" />
       </PhysicalDevice>
     </physicalDevices>
   </component>
