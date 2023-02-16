@@ -4,8 +4,8 @@
       <PhysicalDevice>
         <key>
           <Key>
-            <type value="DOMAIN_NAME" />
-            <value value="adb-SWMBXW5PFUWCTCX4-uMNLgC._adb-tls-connect._tcp" />
+            <type value="SERIAL_NUMBER" />
+            <value value="SWMBXW5PFUWCTCX4" />
           </Key>
         </key>
         <name value="realme RMX2002" />
@@ -15,8 +15,8 @@
       <PhysicalDevice>
         <key>
           <Key>
-            <type value="SERIAL_NUMBER" />
-            <value value="SWMBXW5PFUWCTCX4" />
+            <type value="DOMAIN_NAME" />
+            <value value="adb-SWMBXW5PFUWCTCX4-uMNLgC._adb-tls-connect._tcp" />
           </Key>
         </key>
         <name value="realme RMX2002" />
