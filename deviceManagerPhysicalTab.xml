@@ -8,7 +8,7 @@
             <value value="SWMBXW5PFUWCTCX4" />
           </Key>
         </key>
-        <name value="realme RMX2002" />
+        <name value="Device" />
         <target value="Android 11.0" />
         <api value="androidversion:30:null:null:true" />
       </PhysicalDevice>
