@@ -8,9 +8,8 @@
             <value value="HA109XSS" />
           </Key>
         </key>
-        <name value="Lenovo TB-7504X" />
-        <target value="Android 7.0" />
-        <api value="androidversion:24:null:null:true" />
+        <name value="Device" />
+        <target value="Android 1.0" />
       </PhysicalDevice>
       <PhysicalDevice>
         <key>
