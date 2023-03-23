@@ -5,6 +5,17 @@
         <key>
           <Key>
             <type value="SERIAL_NUMBER" />
+            <value value="HA109XSS" />
+          </Key>
+        </key>
+        <name value="Lenovo TB-7504X" />
+        <target value="Android 7.0" />
+        <api value="androidversion:24:null:null:true" />
+      </PhysicalDevice>
+      <PhysicalDevice>
+        <key>
+          <Key>
+            <type value="SERIAL_NUMBER" />
             <value value="SWMBXW5PFUWCTCX4" />
           </Key>
         </key>
